@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Query
+{% endblock %}
+
+{% block content %}
+{% if messages %}
+<div class="message-container">
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}}">
+        {{message}}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<div class="contact-container">
+    <form method="POST" class="contact-form">
+        {% csrf_token %}
+        <h2>User Message</h2>
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <input type="text" name="cname" placeholder="Company name" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</div>
+{%endblock %}
