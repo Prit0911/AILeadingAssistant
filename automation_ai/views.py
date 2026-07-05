@@ -7,7 +7,7 @@ import json, csv
 
 import os
 
-client = genai.Client(api_key = 'YOUR_API_KEY')
+client = genai.Client(api_key = 'your_api_key') 
 
 def base(req):
     return render(req, 'base.html')
